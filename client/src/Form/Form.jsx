@@ -15,6 +15,8 @@ function Form() {
   const [time, setTime] = useState("07:30");
   const [foodType, setFoodType] = useState("");
   const [foodWeight, setFoodWeight] = useState(0);
+  const [ducksFedCount, setDucksFedCount] = useState(1);
+  const [recurentFeed, setRecurentFed] = useState(false);
   
   const handleChange = (event) => {
     switch (event.target.id) {
@@ -34,10 +36,18 @@ function Form() {
         console.log("Food Weight");
         setFoodWeight(event.target.value);
         break;
+      case "docks-count":
+        console.log("Docks");
+        setDucksFedCount(event.target.value);
+        break;
+      case "Recurrent":
+        console.log("Recurrent");
+        setRecurentFed(event.target.value);
+        break;
       default:
         break;
     }
-    console.log(place, time, foodType, foodWeight)
+    console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
   };
 
   const handleSubmit = (event) => {

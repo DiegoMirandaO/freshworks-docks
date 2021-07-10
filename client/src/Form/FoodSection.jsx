@@ -17,8 +17,8 @@ function FoodSection(props) {
           <InputLabel htmlFor="food-type">Food type</InputLabel>
           <Select 
             required id="food-type"
-            defaultValue={defaultFoodType}
             onChange={(event) => { handleChange(event) }}>
+            <option value="" selected disabled>Select type</option>
             <option value="pond-weed">Pond weed</option>
             <option value="seeds">Seeds</option>
             <option value="insects">Insects</option>
