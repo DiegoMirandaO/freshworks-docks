@@ -13,7 +13,7 @@ function Form() {
   const classes = useStyles();
   const [place, setPlace] = useState("");
   const [time, setTime] = useState("07:30");
-  const [foodType, setFoodType] = useState("");
+  const [foodType, setFoodType] = useState("default");
   const [foodWeight, setFoodWeight] = useState(0);
   const [ducksFedCount, setDucksFedCount] = useState(1);
   const [recurentFeed, setRecurentFed] = useState(false);
@@ -51,10 +51,20 @@ function Form() {
   };
 
   const handleSubmit = (event) => {
-    console.log(place, time)
+    console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
     console.log(event)
-    alert('A name was submitted: ');
-    event.preventDefault();
+    // alert('A name was submitted: ');
+    // event.preventDefault();
+    try {
+      if(!place || !time || !foodType|| !foodWeight || !ducksFedCount || recurentFeed === undefined) {
+        console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
+        console.log(!place, !time, !foodType, !foodWeight, !ducksFedCount, recurentFeed === undefined)
+        throw new Error('Incomplete data');
+      }
+      console.warn("FORM PASSED");
+    } catch (error) {
+      console.error(error);
+    }
   }
   
   return (
@@ -67,7 +77,7 @@ function Form() {
           defaultTime={time}
           handleChange={handleChange}/>
         <FoodSection 
-          defaultFoodType={foodType}
+          foodType={foodType}
           defaultFoodWheight={foodWeight}
           handleChange={handleChange}/>
         <Grid item xs={6}> 
