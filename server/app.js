@@ -8,8 +8,10 @@ var indexRouter = require('./routes/index');
 var ducksRouter = require('./routes/ducks');
 // var usersRouter = require('./routes/users');
 const { ppid } = require('process');
+var cors = require('cors')
 
 var app = express();
+app.use(cors()) // Use this after the variable declaration
 
 // // view engine setup
 app.set('views', path.join(__dirname, 'views'));

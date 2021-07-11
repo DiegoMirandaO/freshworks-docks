@@ -1,13 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import {getFeds, postFed} from '../Utils/Api';
 import { Grid, Button } from '@material-ui/core';
 import PlaceTimeSection from './PlaceTimeSection';
 import FoodSection from './FoodSection';
 import Title from './Title';
 import { useStyles } from './styles';
-
-
-
-
 
 function Form() {
   const classes = useStyles();
@@ -34,7 +31,7 @@ function Form() {
         break;
       case "food-weight":
         console.log("Food Weight");
-        setFoodWeight(event.target.value);
+        setFoodWeight( Number.parseInt(event.target.value));
         break;
       case "docks-count":
         console.log("Docks");
@@ -50,18 +47,18 @@ function Form() {
     console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
   };
 
+
   const handleSubmit = (event) => {
-    console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
-    console.log(event)
-    // alert('A name was submitted: ');
-    // event.preventDefault();
+    // console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
+    // console.log(event)
     try {
       if(!place || !time || !foodType|| !foodWeight || !ducksFedCount || recurentFeed === undefined) {
         console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
         console.log(!place, !time, !foodType, !foodWeight, !ducksFedCount, recurentFeed === undefined)
         throw new Error('Incomplete data');
       }
-      console.warn("FORM PASSED");
+      postFed(ducksFedCount, place, time, foodType, foodWeight, recurentFeed);
+      console.warn("POST");
     } catch (error) {
       console.error(error);
     }
