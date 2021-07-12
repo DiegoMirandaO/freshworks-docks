@@ -19,7 +19,6 @@ const postFed = (ducksCount = 0, place = "", time = "", foodType = "", weight = 
     || typeof weight !== 'number'
     || typeof recurrent !== 'boolean'
   ) {
-    console.log(typeof ducksCount, typeof place, typeof foodType, typeof weight, typeof recurrent)
       throw new Error('Invalid data type');
     }
   if(ducksCount <= 0) {
