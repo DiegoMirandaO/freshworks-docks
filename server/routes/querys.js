@@ -2,7 +2,7 @@ require('dotenv').config();
 const Pool = require('pg').Pool
 const { Client } = require('pg');
 
-const client = new Client({
+const client = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
@@ -14,7 +14,7 @@ client.connect()
 const getDuckFeds = (request, response) => {
   client.query('SELECT * FROM ducks ORDER BY ID ASC', (error, results) => {
     if (error) {
-      throw error
+      console.log(error)
     }
     response.status(200).json(results.rows)
   })
@@ -42,7 +42,6 @@ const createDuckFed = (request, response) => {;
         return;
       }
       response.status(201).send(`Duck added`)
-      client.end()
     })
 };
 
