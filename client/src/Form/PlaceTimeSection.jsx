@@ -10,7 +10,7 @@ function PlaceTimeSection(props) {
         <Grid item xs={12}>
           <Title text="When and where?"/>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={8}>
           <Input
             id="place-fed"
             placeholder="Place"

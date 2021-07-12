@@ -10,7 +10,7 @@ function FoodSection(props) {
       <Grid item xs={12}>
         <Title text="Food" />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={8}>
         <FormControl 
           className={classes.inputText}
           required>

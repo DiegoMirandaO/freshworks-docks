@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
-import {getFeds, postFed} from '../Utils/Api';
+import { useState } from 'react';
+import { postFed } from '../Utils/Api';
 import { Grid, Button } from '@material-ui/core';
 import PlaceTimeSection from './PlaceTimeSection';
 import FoodSection from './FoodSection';
 import Title from './Title';
 import { useStyles } from './styles';
+import DucksSection from './DucksSection';
 
 function Form() {
   const classes = useStyles();
@@ -16,6 +17,7 @@ function Form() {
   const [recurentFeed, setRecurentFed] = useState(false);
   
   const handleChange = (event) => {
+    console.log(event.target.id, event.target.checked)
     switch (event.target.id) {
       case "place-fed":
         setPlace(event.target.value);
@@ -29,16 +31,36 @@ function Form() {
       case "food-weight":
         setFoodWeight( Number.parseInt(event.target.value));
         break;
-      case "docks-count":
-        setDucksFedCount(event.target.value);
         break;
-      case "Recurrent":
-        setRecurentFed(event.target.value);
+      case "recurrent":
+        setRecurentFed(event.target.checked);
         break;
       default:
         break;
     }
   };
+
+  const handleClick = (event) => {
+    switch (event.target.innerHTML) {
+      case "One":
+        setDucksFedCount(1);
+        break;
+      case "Two":
+        setDucksFedCount(2);
+        break;
+      case "Three":
+        setDucksFedCount(3);
+        break;
+      case "Four":
+        setDucksFedCount(4);
+        break;
+      case "Five":
+        setDucksFedCount(5);
+        break;
+      default:
+        break;
+    }
+  }
 
 
   const handleSubmit = (event) => {
@@ -61,11 +83,16 @@ function Form() {
         <PlaceTimeSection
           defaultTime={time}
           handleChange={handleChange}/>
-        <FoodSection 
-          foodType={foodType}
-          defaultFoodWheight={foodWeight}
-          handleChange={handleChange}/>
-        <Grid item xs={6}> 
+          <FoodSection 
+            foodType={foodType}
+            defaultFoodWheight={foodWeight}
+            handleChange={handleChange}/>
+          <DucksSection 
+            ducksNumber={ducksFedCount}
+            handleClick={handleClick}
+            recurentFeed={recurentFeed}
+            handleChange={handleChange}/>
+        <Grid item xs={12} className={classes.right}> 
           <Button variant="contained" color="primary" onClick={handleSubmit} className={classes.submit}>
             Feed
           </Button>

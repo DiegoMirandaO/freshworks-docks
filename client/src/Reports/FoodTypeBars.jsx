@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { getFeds } from '../Utils/Api';
 
@@ -6,13 +6,13 @@ function FoodType() {
   const [data,  setData] = useState([["Foot Type", "Weight"]]);
   
   const promiseData = getFeds();
-  useEffect(()=> {
+  useMemo(()=> {
     promiseData.then(d => {
       const myData = dataTransform(d);
       setData(myData);
     });
 
-  }, [promiseData]);
+  }, []);
 
   return (
     <Chart

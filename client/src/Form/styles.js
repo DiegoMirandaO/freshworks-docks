@@ -36,14 +36,29 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(1),
       width: '100%',
     },
+    right: {
+      textAlign: 'right',
+    },
     submit: {
       height: 50,
+      minWidth: 200,
+      marginRight: 20,
+      marginBottom: 10,
     },
     formControl: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
       minWidth: 120,
     },
+    checkbox: {
+      height: 25,
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+    },
+    text: {
+      height: 25,
+      width: '100%',
+    }
   }));
 
 export { useStyles };

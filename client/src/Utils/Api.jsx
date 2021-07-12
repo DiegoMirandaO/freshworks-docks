@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getFeds = () => {
 
-  return axios.get("http://localhost:3001/ducks/")
+  return axios.get("/ducks/")
     .then(
       (result) => {
         return result.data;

@@ -3,7 +3,7 @@ import { Paper, Grid } from '@material-ui/core';
 import '@fontsource/roboto';
 import './App.css';
 import DockForm from './Form/Form';
-import FoodType from './Report/FoodTypeBars';
+import FoodType from './Reports/FoodTypeBars';
 
 const useStyles = makeStyles((theme) => ({
   root: {
