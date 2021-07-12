@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-// import Grid from '@material-ui/core/Grid';
+import { Paper, Grid } from '@material-ui/core';
 import '@fontsource/roboto';
 import './App.css';
 import DockForm from './Form/Form';
+import FoodType from './Report/FoodTypeBars';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,26 +12,36 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     maxWidth: 680,
     padding: theme.spacing(2),
+    marginTop: theme.spacing(1),
     textAlign: 'left',
+    margin: 'auto',
     color: theme.palette.text.secondary,
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
 function App() {
   const classes = useStyles();
+
   return (
-    <div className={`App ${classes.root}`}>
-      {/* <Grid spacing={3} alignItems="center" alignContent="center" className={classes.container}>
-        <Grid item xs={12}> */}
+    <div className={`App`}>
+      <Grid   className={classes.container}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
             <DockForm/>
           </Paper>
-        {/* </Grid> */}
-        {/* <Grid item xs={12}>
+        </Grid>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
+            <FoodType/>
           </Paper>
-        </Grid> */}
-      {/* </Grid> */}
+        </Grid>
+      </Grid>
     </div>
   );
 }

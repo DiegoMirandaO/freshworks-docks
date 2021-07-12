@@ -7,21 +7,20 @@ const client = new Client({
   ssl: {
     rejectUnauthorized: false
   }
-});
+})
+
+client.connect()
 
 const getDuckFeds = (request, response) => {
-  client.connect()
   client.query('SELECT * FROM ducks ORDER BY ID ASC', (error, results) => {
     if (error) {
       throw error
     }
     response.status(200).json(results.rows)
-    client.end()
   })
 };
 
 const getDuckFedById = (request, response) => {
-  client.connect()
   const id = parseInt(request.params.id)
 
   client.query('SELECT * FROM ducks WHERE ID = $1', [id], (error, results) => {
@@ -29,12 +28,10 @@ const getDuckFedById = (request, response) => {
       throw error
     }
     response.status(200).json(results.rows)
-    client.end()
   })
 };
 
-const createDuckFed = (request, response) => {
-  client.connect();
+const createDuckFed = (request, response) => {;
   const { place, fed_ts, food_type, food_weight, ducks_number, is_recurrent } = request.body;
   client.query(
     'INSERT INTO ducks (fed_ts, food_weight, ducks_number, is_recurrent, fed_place, food_type ) VALUES ($1, $2, $3, $4, $5, $6)',
@@ -49,8 +46,7 @@ const createDuckFed = (request, response) => {
     })
 };
 
-const deleteDuckFed = (request, response) => {
-  client.connect();
+const deleteDuckFed = (request, response) => {;
   const id = parseInt(request.params.id)
 
   client.query('DELETE FROM ducks WHERE id = $1', [id], (error, results) => {
@@ -58,7 +54,6 @@ const deleteDuckFed = (request, response) => {
       throw error
     }
     response.status(200).send(`User deleted with ID: ${id}`)
-    client.end()
   })
 };
 

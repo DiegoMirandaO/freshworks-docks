@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 const getFeds = () => {
-  axios.get("http://localhost:3001/ducks/")
+
+  return axios.get("http://localhost:3001/ducks/")
     .then(
       (result) => {
-        console.log(result.data);
+        return result.data;
       },
       (error) => {
         console.error(error);
