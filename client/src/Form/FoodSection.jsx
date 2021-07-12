@@ -3,7 +3,7 @@ import { useStyles } from './styles';
 import Title from './Title';
 
 function FoodSection(props) {
-  const { handleChange, foodType, defaultFoodWheight } = props;
+  const { handleChange, foodType, defaultFoodWheight, handleFoodType } = props;
   const classes = useStyles();
   return (
       <>
@@ -19,7 +19,7 @@ function FoodSection(props) {
             required
             id="food-type"
             value={foodType || "default"}
-            onChange={(event) => { handleChange(event) }}>
+            onChange={(event) => { handleFoodType(event) }}>
             <option disabled value="default">Select type</option>
             <option value="pond-weed">Pond weed</option>
             <option value="seeds">Seeds</option>

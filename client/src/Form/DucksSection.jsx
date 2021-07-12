@@ -4,7 +4,6 @@ import Title from './Title';
 
 function DucksSection(props) {
   const { handleClick, ducksNumber, recurentFeed, handleChange } = props;
-  console.log(ducksNumber);
   const classes = useStyles();
   return (
       <>

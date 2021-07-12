@@ -17,7 +17,6 @@ function Form() {
   const [recurentFeed, setRecurentFed] = useState(false);
   
   const handleChange = (event) => {
-    console.log(event.target.id, event.target.checked)
     switch (event.target.id) {
       case "place-fed":
         setPlace(event.target.value);
@@ -25,12 +24,8 @@ function Form() {
       case "time-fed":
         setTime(event.target.value);
         break;
-      case "food-type":
-        setFoodType(event.target.value);
-        break;
       case "food-weight":
         setFoodWeight( Number.parseInt(event.target.value));
-        break;
         break;
       case "recurrent":
         setRecurentFed(event.target.checked);
@@ -39,6 +34,10 @@ function Form() {
         break;
     }
   };
+
+  const handleFoodType = (event) => {
+    setFoodType(event.target.value);
+  }
 
   const handleClick = (event) => {
     switch (event.target.innerHTML) {
@@ -86,7 +85,8 @@ function Form() {
           <FoodSection 
             foodType={foodType}
             defaultFoodWheight={foodWeight}
-            handleChange={handleChange}/>
+            handleChange={handleChange}
+            handleFoodType={handleFoodType}/>
           <DucksSection 
             ducksNumber={ducksFedCount}
             handleClick={handleClick}
