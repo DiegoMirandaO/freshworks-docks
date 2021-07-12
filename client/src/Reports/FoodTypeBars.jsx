@@ -50,7 +50,7 @@ function dataTransform(rawData) {
   });
   
   const dataArray = [["Foot Type", "Weight"]];
-  Object.keys(data).sort().forEach((key) => dataArray.push([key, data[key]]));
+  Object.keys(data).sort().forEach((key) => dataArray.push([key, data[key]/1000]));
   return dataArray;
 };
 

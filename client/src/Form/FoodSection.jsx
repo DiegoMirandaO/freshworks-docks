@@ -21,11 +21,11 @@ function FoodSection(props) {
             value={foodType || "default"}
             onChange={(event) => { handleFoodType(event) }}>
             <option disabled value="default">Select type</option>
-            <option value="pond-weed">Pond weed</option>
-            <option value="seeds">Seeds</option>
-            <option value="insects">Insects</option>
-            <option value="worms">Worms</option>
-            <option value="other">Other</option>
+            <option value="Pond weed">Pond weed</option>
+            <option value="Seeds">Seeds</option>
+            <option value="Insects">Insects</option>
+            <option value="Worms">Worms</option>
+            <option value="Other">Other</option>
           </Select>
         </FormControl>
         </Grid>
