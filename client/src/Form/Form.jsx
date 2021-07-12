@@ -18,47 +18,35 @@ function Form() {
   const handleChange = (event) => {
     switch (event.target.id) {
       case "place-fed":
-        console.log("Place");
         setPlace(event.target.value);
         break;
       case "time-fed":
-        console.log("Time");
         setTime(event.target.value);
         break;
       case "food-type":
-        console.log("Food Type");
         setFoodType(event.target.value);
         break;
       case "food-weight":
-        console.log("Food Weight");
         setFoodWeight( Number.parseInt(event.target.value));
         break;
       case "docks-count":
-        console.log("Docks");
         setDucksFedCount(event.target.value);
         break;
       case "Recurrent":
-        console.log("Recurrent");
         setRecurentFed(event.target.value);
         break;
       default:
         break;
     }
-    console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
   };
 
 
   const handleSubmit = (event) => {
-    // console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
-    // console.log(event)
     try {
       if(!place || !time || !foodType|| !foodWeight || !ducksFedCount || recurentFeed === undefined) {
-        console.log(place, time, foodType, foodWeight, ducksFedCount, recurentFeed)
-        console.log(!place, !time, !foodType, !foodWeight, !ducksFedCount, recurentFeed === undefined)
         throw new Error('Incomplete data');
       }
       postFed(ducksFedCount, place, time, foodType, foodWeight, recurentFeed);
-      console.warn("POST");
     } catch (error) {
       console.error(error);
     }

@@ -43,7 +43,7 @@ const postFed = (ducksCount = 0, place = "", time = "", foodType = "", weight = 
   axios.post("/ducks/", data)
     .then(
       (result) => {
-        console.log(result);
+        console.log("POST", result);
       },
       (error) => {
         console.error(error);
